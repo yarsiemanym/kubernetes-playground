@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo
+  namespace: echo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: echo
+  template:
+    metadata:
+      labels:
+        app: echo
+    spec:
+      containers:
+      - name: echo
+        image: hashicorp/http-echo
+        args:
+          - -text="Hello, world!"
+        resources:
+          limits:
+            memory: 128Mi
+            cpu: 500m
+        ports:
+        - containerPort: 5678
