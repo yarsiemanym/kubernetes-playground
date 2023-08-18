@@ -12,3 +12,4 @@ fi
 
 echo "Appending hostnames for Kubernetes ingress rules to hosts file."
 echo "$INGRESS_IP    argocd.minikube.local" | sudo tee -a $HOSTS_FILE
+echo "$INGRESS_IP    echo.minikube.local" | sudo tee -a $HOSTS_FILE
